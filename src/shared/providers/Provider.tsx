@@ -1,0 +1,33 @@
+import { NuqsAdapter } from 'nuqs/adapters/next'
+import { PropsWithChildren } from 'react'
+import { ToastContainer, Zoom } from 'react-toastify'
+
+import ReactQueryProvider from './ReactQueryProvider'
+
+interface ProviderProps extends PropsWithChildren {}
+
+function Provider({ children }: ProviderProps) {
+	return (
+		<ReactQueryProvider>
+			<NuqsAdapter>{children}</NuqsAdapter>
+			<ToastContainer
+				position='top-center'
+				autoClose={2000}
+				hideProgressBar
+				newestOnTop={false}
+				closeOnClick={false}
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme='light'
+				transition={Zoom}
+				toastStyle={{
+					backgroundColor: 'var(--color-yellow)'
+				}}
+			/>
+		</ReactQueryProvider>
+	)
+}
+
+export default Provider

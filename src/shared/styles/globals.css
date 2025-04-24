@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--color-yellow: #faf8e6;
+	--color-dark: #393939;
+	--color-green: #6fbea8;
+	--auth-text-color: #c7c6b9;
+	--main-text-color: #313131;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+flex__start {
+	justify-content: start;
+}
+
+@layer base {
+	body {
+		@apply box-border list-none overflow-x-hidden scroll-smooth bg-main-color;
+	}
+
+	input {
+		@apply outline-none;
+	}
+}
+
+@layer components {
+	.input {
+		@apply w-full border-b border-green bg-yellow pb-[5px] pt-[1px] font-open_sans-regular text-[15px] text-auth-text-color outline-none xl:text-[20px];
+	}
+
+	.input__text-area {
+		@apply h-[60px] border pl-2 xl:h-[160px];
+	}
+
+	.input__message_error {
+		@apply font-open_sans-regular text-[13px] text-red-600 xl:text-[18px];
+	}
+
+	.main__container {
+		@apply w-full px-[31px] xl:px-[244px];
+	}
+
+	.container {
+		@apply min-w-full px-[31px] xl:px-[244px];
+	}
+
+	.social__button {
+		@apply flex h-[30px] items-center justify-center rounded-[50px] border border-[#C7C6B9] bg-yellow xl:h-[57px];
+	}
+
+	.link__choice {
+		@apply before:absolute before:left-0 before:top-[60%] before:block before:h-[1px] before:w-[42%] before:bg-green before:content-[''] after:absolute after:right-0 after:top-[60%] after:block after:h-[1px] after:w-[42%] after:bg-green after:content-[''];
+	}
+
+	.footer__second-text {
+		@apply font-open_sans-regular text-[15px] text-yellow hover:cursor-pointer xl:text-[16px];
+	}
+
+	.footer__main-text {
+		@apply font-antelive-bold text-[20px] font-bold text-yellow xl:text-[22px];
+	}
+
+	.header__link {
+		@apply font-inter-regular text-[16px] text-main-color xl:cursor-pointer xl:text-[24px] xl:text-yellow;
+	}
+
+	.manage__item {
+		@apply flex min-h-[67px] items-center justify-center border border-main-color font-open_sans-regular text-[20px] text-main-color;
+	}
+
+	.manage__item-index {
+		@apply w-[67px] max-w-[67px];
+	}
+
+	.manage__item-name {
+		@apply w-[204px] max-w-[204px];
+	}
+
+	.manage__item-updatedAt {
+		@apply w-[321px] max-w-[321px];
+	}
+
+	.manage__item-actions {
+		@apply w-[419px] max-w-[419px];
+	}
+
+	.agreement__title {
+		@apply font-open_sans-bold text-[20px] font-bold text-yellow xl:text-[32px];
+	}
+
+	.agreement__sub-title {
+		@apply text-start font-open_sans-regular text-[16px] text-yellow xl:text-[24px];
+	}
+
+	.aboutUs__text {
+		@apply text-start font-open_sans-regular text-[13px] text-yellow xl:text-[24px];
+	}
+}
