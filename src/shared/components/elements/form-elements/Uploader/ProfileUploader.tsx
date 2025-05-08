@@ -6,13 +6,9 @@ import { FileWithPath, useDropzone } from 'react-dropzone'
 import { convertFileToUrl } from '@/shared/utils/convert-file-to-url'
 import { getMediaSource } from '@/shared/utils/get-media-source'
 
-import { IProfileUploader } from './profileUploader.interface'
+import { IUploader } from './uploader.interface'
 
-const ProfileUploader = ({
-	fieldChange,
-	mediaUrl,
-	disabled
-}: IProfileUploader) => {
+const ProfileUploader = ({ fieldChange, mediaUrl, disabled }: IUploader) => {
 	const [file, setFile] = useState<File[]>([])
 	const [fileUrl, setFileUrl] = useState<string>(mediaUrl)
 

@@ -27,11 +27,14 @@ export const PUBLIC_URL = {
 
 	contact: () => PUBLIC_URL.root('/contact'),
 
-	authSocial: (social: string) => API_URL + getAuthUrl(`${social}`)
+	authSocial: (social: string) => API_URL + getAuthUrl(`${social}`),
+
+	mangaById: (id: string) => PUBLIC_URL.root(`/manga/${id}`)
 }
 
 export const USER_URL = {
 	root: (url = '') => `${url}`,
+	publish: (url = '') => `/publish${url}`,
 
 	favorites: () => USER_URL.root('/profile?list=favorites'),
 
@@ -39,5 +42,14 @@ export const USER_URL = {
 
 	editProfile: () => USER_URL.root('/edit-profile'),
 
-	manageGenres: () => USER_URL.root('/manage-genres')
+	manageGenres: () => USER_URL.root('/manage-genres'),
+
+	createManga: () => USER_URL.publish('/create-manga'),
+
+	updateManga: (id: string) => USER_URL.publish(`/update-manga/${id}`),
+
+	createChapter: (mangaId: string) =>
+		USER_URL.publish(`/create-chapter/${mangaId}`),
+	dashboardChapters: (mangaId: string) =>
+		USER_URL.publish(`/dashboard-chapters/${mangaId}`)
 }

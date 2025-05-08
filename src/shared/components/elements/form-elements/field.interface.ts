@@ -1,5 +1,12 @@
 import { InputHTMLAttributes } from 'react'
-import { Control, FieldPath, FieldValues } from 'react-hook-form'
+import {
+	Control,
+	type ControllerRenderProps,
+	FieldError,
+	FieldPath,
+	FieldValues
+} from 'react-hook-form'
+import { type Options } from 'react-select'
 
 interface BaseField {
 	classNameInput?: string
@@ -46,8 +53,25 @@ export interface IFieldSelect<T extends FieldValues>
 	control: Control<T>
 	name: FieldPath<T>
 	values: {
-		value: string
 		title: string
+		value: string | number
 	}[]
 	titleEmpty: string
+}
+
+export interface IOption {
+	label: string
+	value: string
+}
+
+export interface ISelectMulti
+	extends InputHTMLAttributes<HTMLSelectElement>,
+		BaseField {
+	options: Options<IOption>
+	isMulti?: boolean
+	field: ControllerRenderProps<any, any>
+	isLoading?: boolean
+	error?: FieldError | undefined
+	placeholder: string
+	disabled: boolean
 }

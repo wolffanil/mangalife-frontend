@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
 				pathname: '/uploads/**'
 			},
 			{
+				protocol: 'http',
+				hostname: '192.168.1.165',
+				port: '4000',
+				pathname: '/uploads/**'
+			},
+			{
 				protocol: 'https',
 				hostname: 'avatars.yandex.net'
 			},

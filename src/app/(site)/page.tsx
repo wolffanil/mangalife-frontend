@@ -51,6 +51,31 @@ export default function MainPage() {
 					>
 						manage genres
 					</Link>
+
+					<Link
+						href={USER_URL.createManga()}
+						className='p-5 text-red-500'
+					>
+						create-manga
+					</Link>
+
+					<Link
+						href={USER_URL.createChapter(
+							'680f7c04e6b552cc751baaa4'
+						)}
+						className='p-5 text-red-500'
+					>
+						create-chapter
+					</Link>
+
+					<Link
+						href={USER_URL.dashboardChapters(
+							'680f7c04e6b552cc751baaa4'
+						)}
+						className='p-5 text-red-500'
+					>
+						dashboard-chapters
+					</Link>
 				</div>
 			</WhiteWrapper>
 		</>

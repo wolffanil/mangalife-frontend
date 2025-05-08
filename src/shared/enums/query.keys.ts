@@ -4,7 +4,12 @@ export const QUERY_KEYS = {
 	AUTHOR_BY_ID: 'authorById',
 
 	GENRES: 'genres',
-	GENRE_BY_ID: 'genreById'
+	GENRE_BY_ID: 'genreById',
+
+	MANGA_BY_ID: 'mangaById',
+
+	CHAPTERS_BY_MANGA_Id: 'chaptersByMangaId',
+	CHAPTER_BY_ID: 'chapterById'
 }
 
 export type QUERY_KEYS = (typeof QUERY_KEYS)[keyof typeof QUERY_KEYS]

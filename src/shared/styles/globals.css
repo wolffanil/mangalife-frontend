@@ -13,6 +13,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden !important;
 }
 
 flex__start {
@@ -21,17 +22,25 @@ flex__start {
 
 @layer base {
 	body {
-		@apply box-border list-none overflow-x-hidden scroll-smooth bg-main-color;
+		@apply box-border list-none scroll-smooth bg-main-color;
 	}
 
 	input {
 		@apply outline-none;
 	}
+
+	select {
+		@apply !text-auth-text-color;
+	}
+
+	select:valid {
+		@apply !text-main-color;
+	}
 }
 
 @layer components {
 	.input {
-		@apply w-full border-b border-green bg-yellow pb-[5px] pt-[1px] font-open_sans-regular text-[15px] text-auth-text-color outline-none xl:text-[20px];
+		@apply w-full border-b border-green bg-yellow pb-[5px] pt-[1px] font-open_sans-regular text-[15px] text-main-color outline-none placeholder:text-auth-text-color xl:text-[20px];
 	}
 
 	.input__text-area {
@@ -101,4 +110,68 @@ flex__start {
 	.aboutUs__text {
 		@apply text-start font-open_sans-regular text-[13px] text-yellow xl:text-[24px];
 	}
+
+	.input__manga {
+		@apply w-[215px] xl:w-[730px];
+	}
+
+	.input__manga:placeholder-shown {
+		@apply text-ellipsis;
+	}
+
+	.input__manga_mini {
+		@apply w-full xl:w-[372px];
+	}
+
+	.css-13cymwt-control {
+		@apply !important !important border-green bg-yellow shadow-none !important;
+	}
+
+	.custom-select__single-value {
+		@apply text-[15px] text-yellow xl:text-[20px];
+	}
+
+	.custom-select__sinput-container {
+		@apply bg-yellow;
+	}
+
+	.action-page__button {
+		@apply flex cursor-pointer items-center gap-x-[10px] disabled:cursor-not-allowed xl:gap-x-[15px];
+	}
+	.action-page__circle {
+		@apply flex size-[22px] items-center justify-center rounded-full bg-green xl:size-[31px];
+	}
+
+	.action-page__title {
+		@apply font-open_sans-semibold text-[16px] font-semibold text-main-color disabled:text-slate-500 xl:text-[20px];
+	}
+}
+
+.custom-select__control {
+	background-color: var(--color-yellow) !important;
+	border-color: var(--color-green) !important;
+}
+
+.custom-select__indicator-separator {
+	background-color: var(--color-green) !important;
+}
+
+.custom-select__indicator {
+	color: var(--color-green) !important;
+}
+
+.custom-select__multi-value__label {
+	background-color: var(--color-yellow) !important;
+
+	color: var(--main-text-color) !important;
+}
+
+.custom-select__multi-value__remove {
+	background-color: var(--color-green) !important;
+	color: var(--color-yellow) !important;
+}
+
+.custom-select__option {
+	background-color: var(--color-green) !important;
+	color: var(--color-yellow) !important;
 }

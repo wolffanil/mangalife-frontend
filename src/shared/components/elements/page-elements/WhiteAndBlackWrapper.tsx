@@ -20,7 +20,7 @@ function WhiteAndBlackWrapper({
 				)}
 			></div>
 			<div className='relative z-[-1] mt-[-50px] h-[128px] rounded-[55px] bg-main-color pt-[15px] xl:mt-[-193px] xl:h-[346px] xl:rounded-tl-[200px] xl:rounded-tr-[200px] xl:pl-[98px]'>
-				<div className='container ml-[19px] flex items-center'>
+				<div className='ml-[49px] flex max-w-full items-center xl:ml-[241px]'>
 					<p className='font-open_sans-semibold text-[16px] font-semibold text-yellow xl:font-open_sans-bold xl:text-[36px] xl:font-bold'>
 						{title}
 					</p>

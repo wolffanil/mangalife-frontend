@@ -4,8 +4,8 @@ import { Controller } from 'react-hook-form'
 
 import { cn } from '@/shared/utils/tw-merge'
 
+import ProfileUploader from './Uploader/ProfileUploader'
 import type { IField } from './field.interface'
-import ProfileUploader from './profileUploader/ProfileUploader'
 
 const Field = <T extends Record<string, any>>({
 	control,
