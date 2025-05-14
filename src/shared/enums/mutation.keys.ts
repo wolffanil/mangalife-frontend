@@ -25,7 +25,9 @@ export const MUTATION_KEYS = {
 	CREATE_PAGE: 'createPage',
 	UPDATE_IMAGE_PAGE: 'updateImagePage',
 	UPDATE_NUMBER_PAGE: 'updateNumberPage',
-	DELETE_PAGE: 'deletePage'
+	DELETE_PAGE: 'deletePage',
+
+	CREATE_REVIEW: 'createReview'
 }
 
 export type MUTATION_KEYS = (typeof MUTATION_KEYS)[keyof typeof MUTATION_KEYS]

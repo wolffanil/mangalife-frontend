@@ -9,7 +9,6 @@ export function useRefreshUser() {
 	const [accessToken, setAccessToken] = useQueryState('accessToken')
 
 	useEffect(() => {
-		console.log(accessToken, 'accessToken')
 		if (accessToken) {
 			localStorage.setItem('accessToken', accessToken)
 			refresh?.()

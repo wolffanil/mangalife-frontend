@@ -18,6 +18,15 @@ export interface IManga extends ITimeStampts {
 	country: string
 	status: TMangaStatus
 	type: TMangaType
+	rating: number | undefined
+}
+
+export interface IMangaSearch extends Omit<IManga, '_id'> {
+	mangaId: string
+}
+
+export interface IMangaById extends IManga {
+	pages: number
 }
 
 export interface IEditManga

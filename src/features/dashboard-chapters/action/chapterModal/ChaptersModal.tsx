@@ -24,7 +24,7 @@ function ChaptersModal({
 	return (
 		<div
 			className={cn(
-				`absolute flex max-h-[470px] min-h-[250px] w-[250px] flex-col items-start overflow-y-scroll rounded-[20px] bg-main-color p-[20px] left-[${left + 'px'}] z-10 mt-[15px] duration-300 ease-out xl:hidden`,
+				`absolute flex max-h-[470px] min-h-[250px] w-[250px] flex-col items-start overflow-y-scroll rounded-[20px] bg-main-color p-[20px] left-[${left + 'px'}] z-10 mt-[15px] transform duration-300 ease-out xl:hidden`,
 				{
 					'left-[-500px]': !isOpen
 				}

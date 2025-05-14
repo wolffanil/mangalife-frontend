@@ -145,6 +145,14 @@ flex__start {
 	.action-page__title {
 		@apply font-open_sans-semibold text-[16px] font-semibold text-main-color disabled:text-slate-500 xl:text-[20px];
 	}
+
+	.manga__char-item {
+		@apply flex w-full items-center justify-between;
+	}
+
+	.manga__char-val {
+		@apply font-open_sans-regular text-[13px] text-main-color xl:text-[20px];
+	}
 }
 
 .custom-select__control {

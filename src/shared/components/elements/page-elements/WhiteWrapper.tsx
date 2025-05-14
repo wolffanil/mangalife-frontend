@@ -13,6 +13,7 @@ interface WhiteWrapperProps {
 	title?: string
 	subTitleOne?: string
 	subTitleTwo?: string
+	hiddenBackMobile?: boolean
 }
 
 function WhiteWrapper({
@@ -22,6 +23,7 @@ function WhiteWrapper({
 	subTitleTwo,
 	title,
 	className,
+	hiddenBackMobile,
 	children
 }: PropsWithChildren<WhiteWrapperProps>) {
 	return (
@@ -36,7 +38,15 @@ function WhiteWrapper({
 			)}
 		>
 			<MainContainer>
-				{withBack && <ReturnButton />}
+				{withBack && (
+					<div
+						className={cn('', {
+							'hidden xl:block': hiddenBackMobile
+						})}
+					>
+						<ReturnButton />
+					</div>
+				)}
 				{title && (
 					<h1 className='font-antelive-bold text-[16px] font-bold text-main-color xl:text-[40px]'>
 						{title}

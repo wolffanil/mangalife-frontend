@@ -51,5 +51,7 @@ export const USER_URL = {
 	createChapter: (mangaId: string) =>
 		USER_URL.publish(`/create-chapter/${mangaId}`),
 	dashboardChapters: (mangaId: string) =>
-		USER_URL.publish(`/dashboard-chapters/${mangaId}`)
+		USER_URL.publish(`/dashboard-chapters/${mangaId}`),
+
+	readManga: (mangaId: string) => USER_URL.root(`/read/${mangaId}`)
 }

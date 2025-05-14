@@ -8,7 +8,7 @@ function Skeleton({ className }: SkeletonProps) {
 	return (
 		<li
 			className={cn(
-				'h-[19px] w-[109px] rounded-[60px] bg-yellow',
+				'h-[19px] w-[109px] rounded-[60px] bg-[#D9D9D9]',
 				className
 			)}
 		/>

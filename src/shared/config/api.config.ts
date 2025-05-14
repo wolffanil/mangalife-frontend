@@ -11,3 +11,4 @@ export const getGenreUrl = (string: string) => `/genres${string}`
 export const getMangaUrl = (string: string) => `/mangas${string}`
 export const getChapterUrl = (string: string) => `/chapters${string}`
 export const getPageUrl = (string: string) => `/pages${string}`
+export const getReviewUrl = (string: string) => `/reviews${string}`
