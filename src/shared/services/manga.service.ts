@@ -1,5 +1,10 @@
 import { getMangaUrl } from '../config/api.config'
-import type { IEditManga, IManga, IMangaSearch } from '../types/manga.interface'
+import type {
+	IEditManga,
+	IManga,
+	IMangaForPublish,
+	IMangaSearch
+} from '../types/manga.interface'
 
 import { axiosClassic, axiosWithAuth } from './api/interceptors.api'
 
@@ -42,6 +47,15 @@ export const MangaService = {
 		})
 
 		return res.data?.mangas
+	},
+
+	async getForPublish() {
+		const res = await axiosWithAuth<{ mangas: IMangaForPublish[] }>({
+			url: getMangaUrl('/get-for-publish'),
+			method: 'GET'
+		})
+
+		return res.data.mangas
 	},
 
 	async create(data: IEditManga) {

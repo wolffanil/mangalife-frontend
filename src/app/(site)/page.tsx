@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 import Home from '@/features/home/Home'
 
@@ -84,6 +85,9 @@ export default function MainPage() {
 		// 		</div>
 		// 	</WhiteWrapper>
 		// </>
-		<Home />
+		<>
+			<Link href={USER_URL.allMangas()}>all mangas</Link>
+			<Home />
+		</>
 	)
 }

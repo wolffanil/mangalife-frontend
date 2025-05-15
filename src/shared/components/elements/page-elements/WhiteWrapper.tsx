@@ -14,6 +14,7 @@ interface WhiteWrapperProps {
 	subTitleOne?: string
 	subTitleTwo?: string
 	hiddenBackMobile?: boolean
+	hiddenSubTitleMobile?: boolean
 }
 
 function WhiteWrapper({
@@ -24,6 +25,7 @@ function WhiteWrapper({
 	title,
 	className,
 	hiddenBackMobile,
+	hiddenSubTitleMobile,
 	children
 }: PropsWithChildren<WhiteWrapperProps>) {
 	return (
@@ -53,7 +55,14 @@ function WhiteWrapper({
 					</h1>
 				)}
 				{subTitleOne && subTitleTwo && (
-					<div className='mt-[27px] flex w-full items-center gap-x-[10px] xl:mt-[106px] xl:gap-x-[25px]'>
+					<div
+						className={cn(
+							'mt-[27px] flex w-full items-center gap-x-[10px] xl:mt-[106px] xl:gap-x-[25px]',
+							{
+								'hidden xl:flex': hiddenSubTitleMobile
+							}
+						)}
+					>
 						<h2 className='font-open_sans-semibold text-[16px] font-semibold text-main-color xl:text-[32px]'>
 							{subTitleOne}
 						</h2>

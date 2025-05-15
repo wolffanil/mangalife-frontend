@@ -8,6 +8,7 @@ import MangaChar from './ui/MangaChar'
 import MangaInfo from './ui/MangaInfo'
 import SimilarMangas from './ui/SimilarMangas'
 import FormReview from './ui/review/FormReview'
+import Reviews from './ui/review/Reviews'
 
 interface MangaProps {
 	initialManga: IMangaById
@@ -26,6 +27,7 @@ function Manga({ initialManga }: MangaProps) {
 					<OnlyUser>
 						<FormReview />
 					</OnlyUser>
+					<Reviews />
 				</>
 			)}
 		</WhiteWrapper>

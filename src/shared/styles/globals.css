@@ -153,6 +153,10 @@ flex__start {
 	.manga__char-val {
 		@apply font-open_sans-regular text-[13px] text-main-color xl:text-[20px];
 	}
+
+	.manga__desc-item {
+		@apply break-words font-open_sans-regular text-[16px] text-main-color;
+	}
 }
 
 .custom-select__control {

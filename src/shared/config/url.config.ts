@@ -47,6 +47,7 @@ export const USER_URL = {
 	createManga: () => USER_URL.publish('/create-manga'),
 
 	updateManga: (id: string) => USER_URL.publish(`/update-manga/${id}`),
+	allMangas: () => USER_URL.publish('/all-mangas'),
 
 	createChapter: (mangaId: string) =>
 		USER_URL.publish(`/create-chapter/${mangaId}`),

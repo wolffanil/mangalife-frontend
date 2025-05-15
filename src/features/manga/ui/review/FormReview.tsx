@@ -43,6 +43,7 @@ function FormReview() {
 					<Field<CreateReviewType>
 						control={control}
 						name='text'
+						placeholder='Текст'
 						disabled={isCreatingReview}
 						classNameInput='border-black w-full'
 					/>

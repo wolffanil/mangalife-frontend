@@ -14,6 +14,7 @@ export const QUERY_KEYS = {
 	POPULAR_MANGAS: 'popularMangas',
 	NEW_MANGAS: 'newMangas',
 	SEARCH_MANGAS: 'searchMangas',
+	MANGAS_PUBLISH: 'mangasPublish',
 	MANGAS: 'mangas',
 	GET_SIMILAR_BY_AUTHOR: 'getSimilarByAuthor',
 

@@ -28,5 +28,6 @@ export { default as Agreement } from './agreement/Agreement'
 export { default as Skeleton } from './Skeleton'
 
 export { default as MangaItem } from './MangaItem'
+export { default as MangaCharItem } from './MangaCharItem'
 
 export { default as SelectItem } from './SelectItem'

@@ -29,6 +29,10 @@ export interface IMangaById extends IManga {
 	pages: number
 }
 
+export interface IMangaForPublish extends IMangaById {
+	chapters: number
+}
+
 export interface IEditManga
 	extends Omit<
 		IManga,

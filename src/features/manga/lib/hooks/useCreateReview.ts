@@ -39,9 +39,10 @@ export function useCreateReview(
 					queryClient.setQueryData(
 						[QUERY_KEYS.REVIEWS_BY_PARENT, parentId],
 						(data: IReview[]) => {
-							const isExist = data?.length
-								? data.some(r => r._id === review._id)
-								: false
+							// const isExist = data?.length
+							// 	? data.some(r => r._id === review._id)
+							// 	: false
+							const isExist = false
 
 							if (!data?.length) return [{ ...review }]
 
@@ -55,10 +56,9 @@ export function useCreateReview(
 						}
 					)
 
+					reset()
 					return
 				}
-
-				// [...data, { ...review }]
 
 				queryClient.setQueryData(
 					[QUERY_KEYS.REVIEWS_BY_MANGA, params.id],
@@ -90,7 +90,7 @@ export function useCreateReview(
 			}
 		})
 
-	async function handleCreate(data: CreateReviewType, rating: number) {
+	async function handleCreate(data: CreateReviewType, rating?: number) {
 		if (parentId) {
 			await createReview({ ...data, parent: parentId, manga: params.id })
 			return

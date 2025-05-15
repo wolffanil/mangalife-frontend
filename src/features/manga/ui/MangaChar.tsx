@@ -1,8 +1,7 @@
 import Image from 'next/image'
 
+import { MangaCharItem } from '@/shared/components/elements'
 import { IMangaById } from '@/shared/types/manga.interface'
-
-import MangaCharItem from './MangaCharItem'
 
 interface MangaCharProps {
 	manga: IMangaById
