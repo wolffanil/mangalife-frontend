@@ -3,9 +3,9 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useQueryState } from 'nuqs'
 
+import { ListItem } from '@/shared/components/elements'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import type { IMangaForPublish } from '@/shared/types/manga.interface'
-import { cn } from '@/shared/utils/tw-merge'
 
 interface TitlesItemProps {
 	title: string
@@ -14,7 +14,9 @@ interface TitlesItemProps {
 }
 
 function TitlesItem({ title, value, isModal }: TitlesItemProps) {
-	const [status, setStatus] = useQueryState('status')
+	const [status, setStatus] = useQueryState('status', {
+		defaultValue: 'все'
+	})
 
 	const queryClient = useQueryClient()
 
@@ -34,41 +36,13 @@ function TitlesItem({ title, value, isModal }: TitlesItemProps) {
 	}
 
 	return (
-		<li
-			role='button'
-			tabIndex={-1}
-			onClick={handleSetStatus}
-			className={cn(
-				'flex w-full items-center justify-between rounded-[7px] bg-yellow px-[12px] py-[8px] transition-colors duration-300 ease-in-out xl:px-[17px] xl:py-[4px]',
-				{
-					'bg-main-color': isModal && !isActive,
-					'bg-yellow': isModal && isActive,
-					'bg-[#EAE8D3]': isActive && !isModal
-				}
-			)}
-		>
-			<p
-				className={cn(
-					'font-open_sans-regular text-[13px] text-main-color xl:text-[20px]',
-					{
-						'text-yellow': isModal && !isActive,
-						'font-open_sans-semibold font-semibold': isActive
-					}
-				)}
-			>
-				{title}
-			</p>
-			<p
-				className={cn(
-					'font-open_sans-regular text-[13px] text-main-color xl:text-[20px]',
-					{
-						'text-yellow': isModal && !isActive
-					}
-				)}
-			>
-				{count}
-			</p>
-		</li>
+		<ListItem
+			handleClick={handleSetStatus}
+			isActive={isActive}
+			isModal={isModal}
+			count={count}
+			title={title}
+		/>
 	)
 }
 

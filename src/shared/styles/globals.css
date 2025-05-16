@@ -157,6 +157,10 @@ flex__start {
 	.manga__desc-item {
 		@apply break-words font-open_sans-regular text-[16px] text-main-color;
 	}
+
+	.plan__info-item {
+		@apply break-words font-open_sans-regular text-[13px] text-main-color xl:text-[16px];
+	}
 }
 
 .custom-select__control {

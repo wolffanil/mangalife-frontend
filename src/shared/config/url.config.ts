@@ -36,7 +36,7 @@ export const USER_URL = {
 	root: (url = '') => `${url}`,
 	publish: (url = '') => `/publish${url}`,
 
-	favorites: () => USER_URL.root('/profile?list=favorites'),
+	favorites: () => USER_URL.root('/profile?status=Любимые'),
 
 	profile: () => USER_URL.root('/profile'),
 

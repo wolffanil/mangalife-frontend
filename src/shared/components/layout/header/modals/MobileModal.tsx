@@ -23,7 +23,7 @@ function MobileModal({ isOpen, onCloseModal }: MobileModalProps) {
 	return (
 		<div
 			className={cn(
-				'absolute left-[-600px] top-[-20px] flex w-[268px] flex-col items-start rounded-[20px] bg-yellow p-[20px] duration-300 ease-in-out',
+				'absolute left-[-600px] top-[-20px] z-20 flex w-[268px] flex-col items-start rounded-[20px] bg-yellow p-[20px] duration-300 ease-in-out',
 				{
 					'left-0': isOpen
 				}
