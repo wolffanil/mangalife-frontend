@@ -20,7 +20,11 @@ export const QUERY_KEYS = {
 	GET_MY_PLANS: 'getMyPlans',
 
 	REVIEWS_BY_MANGA: 'reviewsByManga',
-	REVIEWS_BY_PARENT: 'reviewsByParent'
+	REVIEWS_BY_PARENT: 'reviewsByParent',
+
+	GET_REASONS: 'reasons',
+
+	GET_USERS: 'users'
 }
 
 export type QUERY_KEYS = (typeof QUERY_KEYS)[keyof typeof QUERY_KEYS]

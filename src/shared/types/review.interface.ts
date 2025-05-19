@@ -21,6 +21,6 @@ export type ReviewStatusType =
 export interface ICreateReview {
 	manga: string
 	text: string
-	rating?: number
+	rating?: Number
 	parent?: string
 }

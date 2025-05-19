@@ -27,7 +27,11 @@ export const MUTATION_KEYS = {
 	UPDATE_NUMBER_PAGE: 'updateNumberPage',
 	DELETE_PAGE: 'deletePage',
 
-	CREATE_REVIEW: 'createReview'
+	CREATE_REVIEW: 'createReview',
+	CHANGE_STATUS_REVIEW: 'changeStatusReview',
+
+	SET_BAN_USER: 'setBanUser',
+	SET_UN_BAN_USER: 'setUnBanUser'
 }
 
 export type MUTATION_KEYS = (typeof MUTATION_KEYS)[keyof typeof MUTATION_KEYS]

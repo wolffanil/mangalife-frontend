@@ -35,6 +35,7 @@ export const PUBLIC_URL = {
 export const USER_URL = {
 	root: (url = '') => `${url}`,
 	publish: (url = '') => `/publish${url}`,
+	admin: (url = '') => `/admin${url}`,
 
 	favorites: () => USER_URL.root('/profile?status=Любимые'),
 
@@ -54,5 +55,8 @@ export const USER_URL = {
 	dashboardChapters: (mangaId: string) =>
 		USER_URL.publish(`/dashboard-chapters/${mangaId}`),
 
-	readManga: (mangaId: string) => USER_URL.root(`/read/${mangaId}`)
+	readManga: (mangaId: string) => USER_URL.root(`/read/${mangaId}`),
+
+	reason: () => USER_URL.admin('/reason'),
+	users: () => USER_URL.admin('/users')
 }

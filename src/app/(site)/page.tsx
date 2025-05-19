@@ -87,6 +87,9 @@ export default function MainPage() {
 		// </>
 		<>
 			<Link href={USER_URL.allMangas()}>all mangas</Link>
+			<Link href={USER_URL.reason()}>reason</Link>
+			<Link href={USER_URL.users()}>users</Link>
+
 			<Home />
 		</>
 	)

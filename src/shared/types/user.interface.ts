@@ -1,3 +1,4 @@
+import type { IReason } from './reason.inerface'
 import type { ITimeStampts } from './timestempts.interface'
 
 export type roleUser = 'user' | 'publish' | 'admin'
@@ -12,6 +13,11 @@ export interface IUser extends ITimeStampts {
 	gender?: genderUser
 	bio?: string | undefined
 	favorites: []
+}
+
+export interface IUserBan
+	extends Pick<IUser, '_id' | 'nickname' | 'picture' | 'isBan'> {
+	reason: IReason
 }
 
 export type genderUser = 'мужской' | 'женский'

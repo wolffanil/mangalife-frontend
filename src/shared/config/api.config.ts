@@ -13,3 +13,4 @@ export const getChapterUrl = (string: string) => `/chapters${string}`
 export const getPageUrl = (string: string) => `/pages${string}`
 export const getReviewUrl = (string: string) => `/reviews${string}`
 export const getPlanUrl = (string: string) => `/plans${string}`
+export const getReasonUrl = (string: string) => `/reasons/${string}`

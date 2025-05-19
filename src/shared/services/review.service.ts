@@ -1,5 +1,9 @@
 import { getReviewUrl } from '../config/api.config'
-import type { ICreateReview, IReview } from '../types/review.interface'
+import type {
+	ICreateReview,
+	IReview,
+	ReviewStatusType
+} from '../types/review.interface'
 
 import { axiosClassic, axiosWithAuth } from './api/interceptors.api'
 
@@ -31,5 +35,17 @@ export const ReviewService = {
 		})
 
 		return res.data.children
+	},
+
+	async changeStatus(reviewId: string, status: ReviewStatusType) {
+		const res = await axiosWithAuth<{ review: IReview }>({
+			url: getReviewUrl(`/change-status/${reviewId}`),
+			method: 'PATCH',
+			data: {
+				status
+			}
+		})
+
+		return res.data.review
 	}
 }

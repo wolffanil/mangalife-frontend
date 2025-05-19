@@ -100,7 +100,9 @@ export function useCreateReview(
 			return
 		}
 
-		await createReview({ ...data, manga: params.id, rating })
+		const currentRating = Number(rating)
+
+		await createReview({ ...data, manga: params.id, rating: currentRating })
 	}
 
 	return useMemo(
