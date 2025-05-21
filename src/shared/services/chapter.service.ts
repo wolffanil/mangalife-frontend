@@ -28,6 +28,18 @@ export const ChapterService = {
 		return res.data?.chapters || []
 	},
 
+	async getByUser(mangaId: string) {
+		const res = await axiosWithAuth<{
+			chapter: IChapterWithPages
+			plan?: { _id: string; currentPage: number }
+		}>({
+			url: getChapterUrl(`/get-by-user/${mangaId}`),
+			method: 'GET'
+		})
+
+		return res.data
+	},
+
 	async getById(chapterId: string) {
 		const res = await axiosWithAuth<{ chapter: IChapterWithPages }>({
 			url: getChapterUrl(`/${chapterId}`),

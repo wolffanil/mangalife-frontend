@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation'
 import { cn } from '@/shared/utils/tw-merge'
 
 interface ReturnButtonProps {
+	push?: string
+	withText?: boolean
 	className?: string
 }
 
-function ReturnButton({ className }: ReturnButtonProps) {
+function ReturnButton({ className, push, withText = true }: ReturnButtonProps) {
 	const router = useRouter()
 
 	return (
@@ -18,7 +20,13 @@ function ReturnButton({ className }: ReturnButtonProps) {
 				'flex items-center gap-x-[31px] xl:gap-x-[53px]',
 				className
 			)}
-			onClick={() => router.back()}
+			onClick={() => {
+				if (push) {
+					router.push(push)
+				} else {
+					router.back()
+				}
+			}}
 		>
 			<div className='relative size-[35px] rounded-full bg-green xl:size-[54px]'>
 				<Image
@@ -31,9 +39,11 @@ function ReturnButton({ className }: ReturnButtonProps) {
 					className='absolute right-[-21px] top-[11px] z-[2] h-[11px] w-[39px] xl:right-[-33px] xl:top-[18px] xl:h-[19px] xl:w-[60px]'
 				/>
 			</div>
-			<p className='font-open_sans-bold text-[16px] font-bold text-main-color xl:text-[24px]'>
-				Назад
-			</p>
+			{withText ? (
+				<p className='font-open_sans-bold text-[16px] font-bold text-main-color xl:text-[24px]'>
+					Назад
+				</p>
+			) : null}
 		</button>
 	)
 }

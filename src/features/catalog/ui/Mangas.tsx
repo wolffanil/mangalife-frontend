@@ -16,8 +16,6 @@ function Mangas({ initialMangas }: MangasProps) {
 
 	const isLoading = isSearchingMangas || isLoadingMangas
 
-	console.log(searchMangas, 'search')
-
 	return (
 		<ul className='grid w-[980px] grid-cols-3 grid-rows-[163px] gap-[10px] xl:grid-cols-5 xl:grid-rows-[272px] xl:gap-[20px]'>
 			{searchQ && !isLoading ? (
@@ -29,7 +27,7 @@ function Mangas({ initialMangas }: MangasProps) {
 							imageWidth={180}
 							imageHeight={272}
 							key={manga._id}
-							className='h-[163px] max-h-[272px] max-w-[180px] max-sm:max-h-[163px] max-sm:max-w-[98px] xl:h-[272px]'
+							className='max-h-[272px] w-[180px] max-sm:h-[163px] max-sm:w-[98px] xl:h-[272px]'
 						/>
 					))
 				) : (
@@ -47,7 +45,7 @@ function Mangas({ initialMangas }: MangasProps) {
 							imageWidth={180}
 							imageHeight={272}
 							key={manga._id}
-							className='max-h-[272px] max-w-[180px] max-sm:max-h-[163px] max-sm:max-w-[98px]'
+							className='max-h-[272px] w-[180px] max-sm:h-[163px] max-sm:w-[98px] xl:h-[272px]'
 						/>
 					))
 				) : (

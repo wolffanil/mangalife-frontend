@@ -10,6 +10,7 @@ export const QUERY_KEYS = {
 
 	CHAPTERS_BY_MANGA_Id: 'chaptersByMangaId',
 	CHAPTER_BY_ID: 'chapterById',
+	CHAPTER_BY_USER: 'chapterByUser',
 
 	POPULAR_MANGAS: 'popularMangas',
 	NEW_MANGAS: 'newMangas',

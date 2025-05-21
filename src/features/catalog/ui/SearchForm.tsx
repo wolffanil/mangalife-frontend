@@ -11,9 +11,8 @@ function SearchForm() {
 	const [__, setFilter] = useQueryState('filter')
 
 	const handleSearch = () => {
-		if (searchTerm?.length < 2) return
 		setFilter(null)
-		setQ(searchTerm)
+		setQ(searchTerm?.length ? searchTerm : null)
 	}
 
 	return (
@@ -30,7 +29,6 @@ function SearchForm() {
 
 			<button
 				onClick={handleSearch}
-				disabled={searchTerm?.length < 2}
 				className='disabled:cursor-not-allowed'
 			>
 				<Image

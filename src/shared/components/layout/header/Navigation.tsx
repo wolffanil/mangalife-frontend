@@ -17,7 +17,7 @@ function Navigation({ className }: NavigationProps) {
 		>
 			{HEADER_LINKS.map((link, i) => (
 				<li key={i}>
-					<Link href={link.link} className='header__link'>
+					<Link href={link.link} className='header__link' scroll>
 						{link.title}
 					</Link>
 				</li>

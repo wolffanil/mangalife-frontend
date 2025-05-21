@@ -1,3 +1,4 @@
+import { IChapterWithPages } from './chapter.interface'
 import type { IManga } from './manga.interface'
 import type { ITimeStampts } from './timestempts.interface'
 
@@ -16,4 +17,12 @@ export interface IPlan extends ITimeStampts {
 	manga: IMangaPlan
 	user: string
 	status: PlanStatusType
+}
+
+export interface IChapterPlan {
+	chapter: IChapterWithPages
+	plan: {
+		_id: string
+		currentPage: number
+	}
 }
