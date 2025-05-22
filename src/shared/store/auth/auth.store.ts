@@ -30,7 +30,11 @@ export const authStore = create<AuthStore>(set => ({
 				return
 			}
 
-			set({ user: userData?.data.user ?? null, isAuthenticated: true })
+			set({
+				user: userData?.data.user ?? null,
+				isAuthenticated: true,
+				isLoading: false
+			})
 		}
 
 		set({ isLoading: false })

@@ -22,7 +22,6 @@ export function useCreateGenre(
 			mutationFn: (data: TGenre) => GenresService.create(data),
 			onSuccess: genre => {
 				handleToast('success', 'жанр создан')
-				console.log(genre, 'new')
 				queryClient.setQueryData(
 					[QUERY_KEYS.GENRES],
 					(data: IGenre[]) =>

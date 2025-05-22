@@ -1,9 +1,12 @@
 import axios, { CreateAxiosDefaults } from 'axios'
 
+import { handleToast } from '@/shared/utils/handle-toast'
+
 import { API_URL } from '../../config/api.config'
 import { deleteAccessToken, getAccessToken } from '../auth/auth.helper'
 
 import { errorCatch } from './error.api'
+import { handleBan } from './handleBanUser'
 import { getNewTokens } from './helper.api'
 
 const options: CreateAxiosDefaults = {
@@ -31,6 +34,16 @@ axiosWithAuth.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config
+
+		if (
+			error?.response?.data?.message === 'Вы были забанены' &&
+			error?.response?.data?.statusCode === 403
+		) {
+			await handleBan()
+			handleToast('error', 'Вы были забанены')
+
+			return
+		}
 
 		if (
 			(error?.response?.status === 401 ||

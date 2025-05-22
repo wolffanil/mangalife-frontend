@@ -67,7 +67,6 @@ export function useActionManga({
 	const handleManga = async (data: TMangaForm) => {
 		if (isCreatingManga || isUpdatingManga) return
 
-		console.log('post')
 		let poster = data?.poster || ''
 		if (data?.file?.length) {
 			const url = await uploadFile(data?.file)

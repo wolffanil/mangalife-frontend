@@ -1,5 +1,3 @@
-import React from 'react'
-
 function EmptyStar() {
 	return (
 		<svg

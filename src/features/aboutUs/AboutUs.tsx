@@ -12,7 +12,7 @@ function AboutUs() {
 				<div className='mt-[71px] flex w-full flex-col items-start gap-y-[45px] xl:mt-[98px] xl:flex-row xl:justify-between xl:gap-y-0'>
 					<div className='flex flex-col items-start gap-y-[25px] xl:mt-[102px] xl:w-[811px] xl:gap-y-[48px]'>
 						<p className='aboutUs__text'>
-							<span className='font-open_sans-bold text-[15px] font-bold'>
+							<span className='font-open_sans-bold text-[15px] font-bold xl:text-[22px]'>
 								MangaLife
 							</span>
 							— это мир, созданный для любителей манги, манхвы и

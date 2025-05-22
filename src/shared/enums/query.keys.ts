@@ -3,6 +3,8 @@ export const QUERY_KEYS = {
 	AUTHORS: 'authors',
 	AUTHOR_BY_ID: 'authorById',
 
+	GET_PREMIUM: 'premium',
+
 	GENRES: 'genres',
 	GENRE_BY_ID: 'genreById',
 

@@ -30,7 +30,6 @@ export function useRegister(
 				recaptcha?: string
 			}) => AuthService.register(data, recaptcha),
 			onSuccess: data => {
-				console.log(data)
 				auth(data.user)
 				reset()
 				handleToast('success', 'Вы успешно зарегистрировались')

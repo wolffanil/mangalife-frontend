@@ -39,7 +39,7 @@ function PageItem({ page }: PageItemProps) {
 			tabIndex={-1}
 			role='button'
 		>
-			<div className='rounded-tl-[20px] rounded-tr-[20px] border-l border-r border-t border-black pb-[4px] pl-[17px] pt-[11px] xl:pb-[9px]'>
+			<div className='rounded-tl-[20px] rounded-tr-[20px] border-l border-r border-t border-black bg-yellow pb-[4px] pl-[17px] pt-[11px] xl:pb-[9px]'>
 				<div
 					className={cn(
 						'mr-auto flex size-[16px] max-h-[16px] w-full max-w-[16px] items-center justify-center rounded-full border',

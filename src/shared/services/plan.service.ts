@@ -1,10 +1,30 @@
 import { getPlanUrl } from '../config/api.config'
-import type { IPlan } from '../types/plan.interface'
+import type { IPlan, PlanStatusType } from '../types/plan.interface'
 
 import { axiosWithAuth } from './api/interceptors.api'
 
 export const PlanService = {
-	async create() {},
+	async create(mangaId: string, status: PlanStatusType) {
+		const res = await axiosWithAuth<{ plan: IPlan }>({
+			url: getPlanUrl('/'),
+			method: 'POST',
+			data: {
+				manga: mangaId,
+				status
+			}
+		})
+
+		return res.data.plan
+	},
+
+	async delete(planId: string) {
+		const res = await axiosWithAuth<boolean>({
+			url: getPlanUrl(`/${planId}`),
+			method: 'DELETE'
+		})
+
+		return res.data
+	},
 
 	async getMy(q?: string, sortBy?: string) {
 		const res = await axiosWithAuth<{ plans: IPlan[] }>({

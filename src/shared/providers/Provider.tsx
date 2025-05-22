@@ -28,6 +28,7 @@ function Provider({ children }: ProviderProps) {
 				toastStyle={{
 					backgroundColor: 'var(--color-yellow)'
 				}}
+				className='max-sm:w-full'
 			/>
 		</ReactQueryProvider>
 	)

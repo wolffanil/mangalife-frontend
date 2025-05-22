@@ -1,12 +1,16 @@
+import { AuthGuard, PremiumGuard } from '@/shared/components/elements'
+
 import Header from './Header'
 import PagesList from './PagesList'
 
 function Read() {
 	return (
-		<>
-			<Header />
-			<PagesList />
-		</>
+		<AuthGuard>
+			<PremiumGuard isCheck>
+				<Header />
+				<PagesList />
+			</PremiumGuard>
+		</AuthGuard>
 	)
 }
 

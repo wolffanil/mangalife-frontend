@@ -28,7 +28,6 @@ export async function handleErrors(
 	} else if (typeof errorMessage === 'string') {
 		await handleToast('error', errorMessage)
 	} else {
-		console.error('Неизвестный формат ошибки:', errorMessage)
 		await handleToast('error', 'Произошла ошибка. Попробуйте еще раз.')
 	}
 }

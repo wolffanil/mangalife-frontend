@@ -22,6 +22,7 @@ export { default as WhiteAndBlackWrapper } from './page-elements/WhiteAndBlackWr
 export { default as Title } from './page-elements/Title'
 
 export { default as AuthGuard } from './AuthGuard'
+export { default as PremiumGuard } from './PremiumGuard'
 
 export { default as Agreement } from './agreement/Agreement'
 

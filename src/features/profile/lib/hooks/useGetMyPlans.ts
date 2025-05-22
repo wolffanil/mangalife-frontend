@@ -16,7 +16,12 @@ export function useGetMyPlans() {
 	const sortByCurrent = sortBy ? sortBy : ''
 
 	const { data, isLoading: isLoadingMangas } = useQuery({
-		queryKey: [QUERY_KEYS.GET_MY_PLANS, search, sortByCurrent],
+		queryKey: [
+			QUERY_KEYS.AUTH,
+			QUERY_KEYS.GET_MY_PLANS,
+			search,
+			sortByCurrent
+		],
 		queryFn: () => PlanService.getMy(search, sortByCurrent),
 		staleTime: 10 * 60 * 1000,
 		select: data =>

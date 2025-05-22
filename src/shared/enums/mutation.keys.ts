@@ -31,7 +31,9 @@ export const MUTATION_KEYS = {
 	CHANGE_STATUS_REVIEW: 'changeStatusReview',
 
 	SET_BAN_USER: 'setBanUser',
-	SET_UN_BAN_USER: 'setUnBanUser'
+	SET_UN_BAN_USER: 'setUnBanUser',
+
+	CREATE_PLAN: 'createPlan'
 }
 
 export type MUTATION_KEYS = (typeof MUTATION_KEYS)[keyof typeof MUTATION_KEYS]

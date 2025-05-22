@@ -57,7 +57,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body
-				className={`${openSansRegular.variable} ${openSansSemiBold.variable} ${openSansBold.variable} ${interRegular.variable} ${interBold.variable} ${anteliveBold.variable} antialiased`}
+				className={`${openSansRegular.variable} ${openSansSemiBold.variable} ${openSansBold.variable} ${interRegular.variable} ${interBold.variable} ${anteliveBold.variable} min-h-[99vh] antialiased`}
 			>
 				<Provider>{children}</Provider>
 			</body>

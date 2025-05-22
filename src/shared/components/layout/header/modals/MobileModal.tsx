@@ -45,7 +45,7 @@ function MobileModal({ isOpen, onCloseModal }: MobileModalProps) {
 				))}
 				<OnlyUser>
 					<ProfileLink onCloseModal={onCloseModal} />
-					<Logout />
+					<Logout onCloseModal={onCloseModal} />
 				</OnlyUser>
 			</ul>
 
@@ -58,7 +58,9 @@ function MobileModal({ isOpen, onCloseModal }: MobileModalProps) {
 					/>
 				</OnlyUser>
 				<OnlyUser>
-					<Favorites isModal />
+					<div onClick={() => onCloseModal()}>
+						<Favorites isModal />
+					</div>
 				</OnlyUser>
 			</div>
 		</div>

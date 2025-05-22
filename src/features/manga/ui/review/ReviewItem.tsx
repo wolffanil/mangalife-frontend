@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Skeleton } from '@/shared/components/elements'
+import { OnlyUser, Skeleton } from '@/shared/components/elements'
 import type { IReview } from '@/shared/types/review.interface'
 
 import { useGetReviewsByParent } from '../../lib/hooks/useGetReviewsByParent'
@@ -41,7 +41,11 @@ function ReviewItem({ review }: ReviewItemProps) {
 				</div>
 			</div>
 
-			{isFormAnswer ? <FormReviewChildren review={review} /> : null}
+			{isFormAnswer ? (
+				<OnlyUser>
+					<FormReviewChildren review={review} />
+				</OnlyUser>
+			) : null}
 			{isShowAnswers ? (
 				!isLoadingReviews ? (
 					reviews?.length ? (

@@ -6,6 +6,8 @@ import MangaForm from '@/features/manage-manga/MangaForm'
 
 import { useGetMangaById } from '@/shared/hooks/manga/useGetMangaById'
 
+import ButtonDashboard from './ButtonDashboard'
+
 function Manga() {
 	const { manga, isLoadingManga } = useGetMangaById()
 
@@ -18,7 +20,12 @@ function Manga() {
 
 	if (!manga?._id) return redirect('/')
 
-	return <MangaForm type='edit' manga={manga} />
+	return (
+		<>
+			<MangaForm type='edit' manga={manga} />
+			<ButtonDashboard />
+		</>
+	)
 }
 
 export default Manga

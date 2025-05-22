@@ -44,6 +44,7 @@ export const USER_URL = {
 	editProfile: () => USER_URL.root('/edit-profile'),
 
 	manageGenres: () => USER_URL.root('/manage-genres'),
+	manageAuthors: () => USER_URL.root('/manage-authors'),
 
 	createManga: () => USER_URL.publish('/create-manga'),
 

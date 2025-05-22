@@ -50,7 +50,7 @@ export function useNextChapter() {
 			)
 
 			queryClient.removeQueries({
-				queryKey: [QUERY_KEYS.GET_MY_PLANS],
+				queryKey: [QUERY_KEYS.AUTH, QUERY_KEYS.GET_MY_PLANS],
 				exact: false
 			})
 		}

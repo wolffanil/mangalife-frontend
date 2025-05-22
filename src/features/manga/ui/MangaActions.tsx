@@ -1,11 +1,14 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
 
-import { Button } from '@/shared/components/elements'
+import { Button, OnlyUser } from '@/shared/components/elements'
 import { USER_URL } from '@/shared/config/url.config'
 import type { IManga } from '@/shared/types/manga.interface'
 import { cn } from '@/shared/utils/tw-merge'
+
+const MangaAddPlan = dynamic(() => import('./MangaAddPlan'), { ssr: false })
 
 interface MangaActionsProps {
 	manga: IManga
@@ -18,7 +21,7 @@ function MangaActions({ manga, className }: MangaActionsProps) {
 	return (
 		<div
 			className={cn(
-				'mt-[30px] flex flex-col items-start xl:mt-[93px] xl:flex-row',
+				'mt-[30px] flex flex-row items-start gap-x-[20px] xl:mt-[93px] xl:gap-x-[40px]',
 				className
 			)}
 		>
@@ -28,6 +31,9 @@ function MangaActions({ manga, className }: MangaActionsProps) {
 			>
 				Читать
 			</Button>
+			<OnlyUser>
+				<MangaAddPlan />
+			</OnlyUser>
 		</div>
 	)
 }

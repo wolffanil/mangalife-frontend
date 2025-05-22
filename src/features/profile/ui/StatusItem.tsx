@@ -26,6 +26,7 @@ function StatusItem({ title, value, isModal }: StatusItemProps) {
 	const queryClient = useQueryClient()
 
 	const plans = queryClient.getQueryData([
+		QUERY_KEYS.AUTH,
 		QUERY_KEYS.GET_MY_PLANS,
 		searchQCurrent,
 		sortCurrent

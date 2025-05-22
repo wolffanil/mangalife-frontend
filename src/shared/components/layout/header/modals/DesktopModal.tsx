@@ -13,8 +13,8 @@ function DesktopModal() {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const onClickButton = useCallback(() => {
-		setIsOpen(o => !o)
-	}, [])
+		setIsOpen(!isOpen)
+	}, [isOpen])
 
 	return (
 		<div className='relative'>
@@ -23,7 +23,8 @@ function DesktopModal() {
 				className={cn(
 					'absolute bottom-[-200px] right-[-500px] flex w-[242px] flex-col items-start gap-y-[20px] rounded-[30px] bg-yellow px-[33px] py-[45px] duration-300 ease-in-out',
 					{
-						'left-0': isOpen
+						'left-0': isOpen,
+						'right-[-500px]': !isOpen
 					}
 				)}
 				onClick={() => onClickButton()}

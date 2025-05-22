@@ -1,9 +1,6 @@
-import {
-	type MiddlewareConfig,
-	type NextRequest,
-	NextResponse
-} from 'next/server'
+import { type MiddlewareConfig, NextRequest, NextResponse } from 'next/server'
 
+import { PUBLIC_URL } from './shared/config/url.config'
 import { EnumTokens } from './shared/types/auth.interface'
 
 export default function middleware(request: NextRequest) {
@@ -11,13 +8,34 @@ export default function middleware(request: NextRequest) {
 
 	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
 
+	const isAuthPage =
+		url.includes(PUBLIC_URL.login()) || url.includes(PUBLIC_URL.register())
+
+	if (isAuthPage) {
+		if (refreshToken) {
+			return NextResponse.redirect(new URL('/', request.url))
+		}
+
+		return NextResponse.next()
+	}
+
 	if (!refreshToken) {
-		return NextResponse.redirect(new URL('/', url))
+		return NextResponse.redirect(new URL(PUBLIC_URL.login(), url))
 	}
 
 	return NextResponse.next()
 }
 
 export const config: MiddlewareConfig = {
-	matcher: ['/profile', '/edit-profile', '/manage-authors', '/manage-genres']
+	matcher: [
+		'/profile',
+		'/edit-profile',
+		'/manage-authors',
+		'/manage-genres',
+		'/admin/:path*',
+		'/publish/:path*',
+		'/read/:path*',
+		'/login',
+		'/register'
+	]
 }
