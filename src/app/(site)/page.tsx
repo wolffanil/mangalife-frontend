@@ -14,13 +14,5 @@ export const metadata: Metadata = {
 }
 
 export default function MainPage() {
-	return (
-		<>
-			<Link href={USER_URL.allMangas()}>all mangas</Link>
-			<Link href={USER_URL.reason()}>reason</Link>
-			<Link href={USER_URL.users()}>users</Link>
-
-			<Home />
-		</>
-	)
+	return <Home />
 }

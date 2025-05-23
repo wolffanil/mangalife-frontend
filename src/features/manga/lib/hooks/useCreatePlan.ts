@@ -18,6 +18,13 @@ export function useCreatePlan() {
 			PlanService.create(params.id, status),
 		onSuccess: () => {
 			queryClient.removeQueries({
+				queryKey: [
+					QUERY_KEYS.AUTH,
+					QUERY_KEYS.CHAPTER_BY_USER,
+					params.id
+				]
+			})
+			queryClient.removeQueries({
 				queryKey: [QUERY_KEYS.AUTH, QUERY_KEYS.GET_MY_PLANS],
 				exact: false
 			})

@@ -15,12 +15,7 @@ const nextConfig: NextConfig = {
 				port: '4000',
 				pathname: '/uploads/**'
 			},
-			{
-				protocol: 'http',
-				hostname: '192.168.1.165',
-				port: '4000',
-				pathname: '/uploads/**'
-			},
+
 			{
 				protocol: 'https',
 				hostname: 'avatars.yandex.net'
@@ -28,6 +23,10 @@ const nextConfig: NextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'sun7-22.userapi.com'
+			},
+			{
+				protocol: 'https',
+				hostname: '6c3fbefd-678e-4218-bfa7-d57cc249631d.selstorage.ru'
 			}
 		]
 	}

@@ -16,6 +16,13 @@ function EditProfilePublish() {
 			>
 				Манги
 			</Button>
+
+			<Button
+				onClick={() => router.push(USER_URL.createManga())}
+				className='h-[45px] w-full xl:h-[59px]'
+			>
+				Создать
+			</Button>
 		</div>
 	)
 }

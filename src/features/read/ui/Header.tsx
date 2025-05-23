@@ -59,7 +59,7 @@ function Header() {
 						) : null}
 					</div>
 				</div>
-				<ReturnButton withText={false} push={USER_URL.profile()} />
+				<ReturnButton withText={false} />
 			</div>
 		</div>
 	)
