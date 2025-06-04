@@ -18,7 +18,7 @@ const getMangas = async (): Promise<IManga[]> => {
 	const res = await fetch(API_URL + getMangaUrl(''), {
 		method: 'GET',
 		next: {
-			revalidate: 600000
+			revalidate: 60000
 		}
 	})
 

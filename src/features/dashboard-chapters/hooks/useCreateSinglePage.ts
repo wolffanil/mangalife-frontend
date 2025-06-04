@@ -22,7 +22,9 @@ export function useCreateSinglePage(
 	const params = useParams<{ mangaId: string }>()
 	const selectChapter = chapterStore(state => state.chapter)
 
-	const { uploadFile } = useUploadPhoto({ folder: 'page-cover' })
+	const { uploadFile, isLoadingUplaod } = useUploadPhoto({
+		folder: 'page-cover'
+	})
 
 	const queryClient = useQueryClient()
 
@@ -73,8 +75,8 @@ export function useCreateSinglePage(
 	return useMemo(
 		() => ({
 			handleCreatePage,
-			isCreatingPage
+			isCreatingPage: isCreatingPage || isLoadingUplaod
 		}),
-		[handleCreatePage, isCreatingPage]
+		[handleCreatePage, isCreatingPage, isLoadingUplaod]
 	)
 }

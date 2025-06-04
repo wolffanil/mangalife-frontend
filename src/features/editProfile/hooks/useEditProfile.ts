@@ -17,7 +17,9 @@ export function useEditProfile({
 	setError: UseFormSetError<TEditProfileEdit>
 	setValue: UseFormSetValue<TEditProfileEdit>
 }) {
-	const { uploadFile } = useUploadPhoto({ folder: 'profile' })
+	const { uploadFile, isLoadingUplaod } = useUploadPhoto({
+		folder: 'profile'
+	})
 
 	const { setUser, user } = useCurrent()
 
@@ -56,8 +58,8 @@ export function useEditProfile({
 	return useMemo(
 		() => ({
 			handleUpdateProfile,
-			isUpdatingProfile
+			isUpdatingProfile: isUpdatingProfile || isLoadingUplaod
 		}),
-		[handleUpdateProfile, isUpdatingProfile]
+		[handleUpdateProfile, isUpdatingProfile, isLoadingUplaod]
 	)
 }

@@ -3,7 +3,8 @@ import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import { UseFormReset, UseFormSetError, UseFormSetValue } from 'react-hook-form'
 
-import { PUBLIC_URL, USER_URL } from '@/shared/config/url.config'
+import revalidateNewMangas from '@/shared/actions/actions.mangas'
+import { USER_URL } from '@/shared/config/url.config'
 import { MUTATION_KEYS } from '@/shared/enums/mutation.keys'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import { useUploadPhoto } from '@/shared/hooks/useUploadPhoto'
@@ -31,7 +32,9 @@ export function useActionManga({
 	const queryClient = useQueryClient()
 	const router = useRouter()
 
-	const { uploadFile } = useUploadPhoto({ folder: 'manga-cover' })
+	const { uploadFile, isLoadingUplaod } = useUploadPhoto({
+		folder: 'manga-cover'
+	})
 
 	const { mutateAsync: createManga, isPending: isCreatingManga } =
 		useMutation({
@@ -40,6 +43,14 @@ export function useActionManga({
 			onSuccess: manga => {
 				handleToast('success', 'Манга успешно создана')
 				reset()
+				queryClient.refetchQueries({
+					queryKey: [QUERY_KEYS.NEW_MANGAS]
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.MANGAS],
+					exact: false
+				})
+				revalidateNewMangas()
 				router.push(USER_URL.createChapter(manga._id))
 			},
 			onError: (errors: any) => {
@@ -110,7 +121,7 @@ export function useActionManga({
 	return useMemo(
 		() => ({
 			handleManga,
-			isLoading: isCreatingManga || isUpdatingManga
+			isLoading: isCreatingManga || isUpdatingManga || isLoadingUplaod
 		}),
 		[handleManga, isCreatingManga, isUpdatingManga]
 	)

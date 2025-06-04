@@ -5,7 +5,7 @@ export const fetchPopularMangas = async (): Promise<IManga[]> => {
 	const res = await fetch(API_URL + getMangaUrl('/get-popular'), {
 		method: 'GET',
 		next: {
-			revalidate: 900000
+			revalidate: 60000
 		}
 	})
 
@@ -18,7 +18,8 @@ export const fetchNewMangas = async (): Promise<IManga[]> => {
 	const res = await fetch(API_URL + getMangaUrl('/get-new'), {
 		method: 'GET',
 		next: {
-			revalidate: 900000
+			revalidate: 60000,
+			tags: ['newMangas']
 		}
 	})
 

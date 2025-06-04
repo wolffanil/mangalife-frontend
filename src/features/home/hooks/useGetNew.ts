@@ -12,7 +12,7 @@ export function useGetNew(mangas: IManga[]) {
 	const { data, isLoading: isLoadingNew } = useQuery({
 		queryKey: [QUERY_KEYS.NEW_MANGAS],
 		queryFn: () => MangaService.getNew(),
-		staleTime: 15 * 60 * 1000,
+		staleTime: 10 * 60 * 1000,
 		initialData: mangas,
 		select: data =>
 			data?.map(manga => ({

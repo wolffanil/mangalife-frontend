@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 
-import AuthorsPageComponent from '@/features/author/AuthorPageComponent'
+import Authors from '@/features/author/Authors'
 
 import {
+	AuthGuard,
 	Title,
 	WhiteAndBlackWrapper,
 	WhiteWrapper
@@ -16,12 +17,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<>
+		<AuthGuard onlyPublish>
 			<Title title='Панель загрузки' />
 			<WhiteAndBlackWrapper title='Добавление' desc='Управление' />
 			<WhiteWrapper isSecond title='Управление'>
-				<AuthorsPageComponent />
+				<Authors />
 			</WhiteWrapper>
-		</>
+		</AuthGuard>
 	)
 }

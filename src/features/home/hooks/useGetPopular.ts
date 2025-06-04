@@ -12,7 +12,7 @@ export function useGetPopular(mangas: IManga[]) {
 	const { data, isLoading: isLoadingPopular } = useQuery({
 		queryKey: [QUERY_KEYS.POPULAR_MANGAS],
 		queryFn: () => MangaService.getPopular(),
-		staleTime: 15 * 60 * 1000,
+		staleTime: 10 * 60 * 1000,
 		initialData: mangas,
 		select: data =>
 			data?.map(manga => ({

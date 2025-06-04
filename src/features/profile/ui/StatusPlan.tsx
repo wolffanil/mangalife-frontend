@@ -13,7 +13,7 @@ interface StatusPlanProps {
 }
 
 function StatusPlan({ isModal, className }: StatusPlanProps) {
-	const { isLoadingMangas } = useGetMyPlans()
+	const { isLoadingMangas, mangas } = useGetMyPlans()
 
 	return (
 		<div

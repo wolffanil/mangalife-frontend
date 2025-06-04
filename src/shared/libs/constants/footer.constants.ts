@@ -15,7 +15,7 @@ export const navigationLinks = [
 	},
 	{
 		title: 'Контакты',
-		link: PUBLIC_URL.contact()
+		link: PUBLIC_URL.aboutUs()
 	}
 ]
 

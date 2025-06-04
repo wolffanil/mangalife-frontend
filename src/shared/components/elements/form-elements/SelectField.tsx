@@ -38,7 +38,7 @@ const SelectField = <T extends Record<string, any>>({
 						className={cn('input', classNameInput)}
 						{...rest}
 					>
-						<option value='' selected disabled>
+						<option selected disabled>
 							{titleEmpty}
 						</option>
 						{values.map((item, i) => (

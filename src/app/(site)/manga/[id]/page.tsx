@@ -17,7 +17,7 @@ const getManga = cache(async (id: string): Promise<IMangaById> => {
 	const res = await fetch(API_URL + getMangaUrl(`/${id}`), {
 		method: 'GET',
 		next: {
-			revalidate: 600000
+			revalidate: 60000
 		}
 	})
 
@@ -33,8 +33,8 @@ export async function generateStaticParams() {
 	])
 
 	const mangas = [
-		...newMangas.map(manga => ({ id: manga._id })),
-		...popularMangas.map(manga => ({ id: manga._id }))
+		...newMangas?.map(manga => ({ id: manga._id })),
+		...popularMangas?.map(manga => ({ id: manga._id }))
 	]
 
 	return mangas

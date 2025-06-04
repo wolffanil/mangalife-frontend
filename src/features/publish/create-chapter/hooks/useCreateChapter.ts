@@ -28,7 +28,7 @@ export function useCreateChapter({
 }: IUseCreateChapter) {
 	const params = useParams<{ mangaId: string }>()
 
-	const { uploadZip } = useUploadZip({
+	const { uploadZip, isLoadingUplaodZip } = useUploadZip({
 		folder: 'pages',
 		mangaId: params.mangaId
 	})
@@ -92,8 +92,8 @@ export function useCreateChapter({
 	return useMemo(
 		() => ({
 			handleCreateChapter,
-			isCreatingChapter
+			isCreatingChapter: isCreatingChapter || isLoadingUplaodZip
 		}),
-		[handleCreateChapter, isCreatingChapter]
+		[handleCreateChapter, isCreatingChapter, isLoadingUplaodZip]
 	)
 }
