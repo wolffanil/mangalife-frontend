@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: 'https',
-				hostname: 'sun7-22.userapi.com'
+				hostname: '*.userapi.com'
 			},
 			{
 				protocol: 'https',
