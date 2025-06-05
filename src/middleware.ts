@@ -12,14 +12,14 @@ export default function middleware(request: NextRequest) {
 		url.includes(PUBLIC_URL.login()) || url.includes(PUBLIC_URL.register())
 
 	if (isAuthPage) {
-		if (refreshToken) {
+		if (refreshToken?.length) {
 			return NextResponse.redirect(new URL('/', request.url))
 		}
 
 		return NextResponse.next()
 	}
 
-	if (!refreshToken) {
+	if (!refreshToken?.length) {
 		return NextResponse.redirect(new URL(PUBLIC_URL.login(), url))
 	}
 
