@@ -21,7 +21,7 @@ function DesktopModal() {
 			<UserButton onClickButton={onClickButton} />
 			<div
 				className={cn(
-					'absolute bottom-[-200px] right-[-500px] flex w-[242px] flex-col items-start gap-y-[20px] rounded-[30px] bg-yellow px-[33px] py-[45px] duration-300 ease-in-out',
+					'absolute bottom-[-200px] right-[-500px] z-20 flex w-[242px] flex-col items-start gap-y-[20px] rounded-[30px] bg-yellow px-[33px] py-[45px] duration-300 ease-in-out',
 					{
 						'left-0': isOpen,
 						'right-[-500px]': !isOpen
