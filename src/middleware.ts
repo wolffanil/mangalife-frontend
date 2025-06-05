@@ -7,8 +7,6 @@ export default function middleware(request: NextRequest) {
 	const { url, cookies } = request
 
 	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
-	console.log(EnumTokens.REFRESH_TOKEN, 'enum')
-	console.log(refreshToken, 'refreshToken')
 
 	const isAuthPage =
 		url.includes(PUBLIC_URL.login()) || url.includes(PUBLIC_URL.register())
