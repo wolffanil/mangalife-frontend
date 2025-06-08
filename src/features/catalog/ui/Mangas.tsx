@@ -1,18 +1,13 @@
 'use client'
 
 import { MangaItem, Skeleton } from '@/shared/components/elements'
-import { IManga } from '@/shared/types/manga.interface'
 
 import { useGetMangas } from '../lib/hooks/useGetMangas'
 import { useSearchManga } from '../lib/hooks/useSearchManga'
 
-interface MangasProps {
-	initialMangas: IManga[]
-}
-
-function Mangas({ initialMangas }: MangasProps) {
+function Mangas() {
 	const { searchMangas, isSearchingMangas, searchQ } = useSearchManga()
-	const { isLoadingMangas, mangas } = useGetMangas(initialMangas)
+	const { isLoadingMangas, mangas } = useGetMangas()
 
 	const isLoading = isSearchingMangas || isLoadingMangas
 

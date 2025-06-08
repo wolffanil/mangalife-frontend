@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
+import { deleteRefreshCookie } from '../actions/actions.cookie'
 import { MUTATION_KEYS } from '../enums/mutation.keys'
 import { QUERY_KEYS } from '../enums/query.keys'
 import { AuthService } from '../services/auth/auth.service'
@@ -9,7 +10,7 @@ import type { IUser } from '../types/user.interface'
 export function useAuth() {
 	const queryClient = useQueryClient()
 
-	const { mutate: logoutFn } = useMutation({
+	const { mutateAsync: logoutFn } = useMutation({
 		mutationKey: [MUTATION_KEYS.LOGOUT],
 		mutationFn: () => AuthService.logout()
 	})
@@ -26,13 +27,14 @@ export function useAuth() {
 		setIsAuthenticated(true)
 	}
 
-	const logout = () => {
+	const logout = async () => {
 		queryClient.removeQueries?.({
 			queryKey: [QUERY_KEYS.AUTH],
 			exact: false
 		})
 		logoutState()
-		logoutFn()
+		await logoutFn()
+		await deleteRefreshCookie()
 	}
 
 	return {

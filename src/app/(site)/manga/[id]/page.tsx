@@ -15,10 +15,7 @@ import type { IMangaById } from '@/shared/types/manga.interface'
 
 const getManga = cache(async (id: string): Promise<IMangaById> => {
 	const res = await fetch(API_URL + getMangaUrl(`/${id}`), {
-		method: 'GET',
-		next: {
-			revalidate: 60000
-		}
+		method: 'GET'
 	})
 
 	const data = await res.json()

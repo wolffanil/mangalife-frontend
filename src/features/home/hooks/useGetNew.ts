@@ -3,17 +3,15 @@ import { useQuery } from '@tanstack/react-query'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import { useMediaQuery } from '@/shared/hooks/useMediaQuery'
 import { MangaService } from '@/shared/services/manga.service'
-import type { IManga } from '@/shared/types/manga.interface'
 import { getMediaSource } from '@/shared/utils/get-media-source'
 
-export function useGetNew(mangas: IManga[]) {
+export function useGetNew() {
 	const isMobile = useMediaQuery('(max-width: 500px)')
 
 	const { data, isLoading: isLoadingNew } = useQuery({
 		queryKey: [QUERY_KEYS.NEW_MANGAS],
 		queryFn: () => MangaService.getNew(),
 		staleTime: 10 * 60 * 1000,
-		initialData: mangas,
 		select: data =>
 			data?.map(manga => ({
 				...manga,
@@ -21,7 +19,7 @@ export function useGetNew(mangas: IManga[]) {
 			}))
 	})
 
-	let newMangas = isMobile ? data.slice(0, 3) : data
+	let newMangas = isMobile ? data?.slice(0, 3) : data
 
 	return { newMangas, isLoadingNew }
 }

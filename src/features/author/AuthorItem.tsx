@@ -91,7 +91,7 @@ function AuthorItem({ author, index, isLastItem }: AuthorItemProps) {
 							className='flex h-full w-[174px] items-center justify-center rounded-[50px] border border-main-color bg-yellow font-open_sans-semibold text-[16px] font-semibold text-main-color'
 							onClick={() => setIsEdit(true)}
 						>
-							Редактирровать
+							Редактировать
 						</button>
 					)}
 					<button

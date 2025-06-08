@@ -25,7 +25,7 @@ function MangaInfo({ manga }: MangaInfoProps) {
 						alt='poster'
 						priority
 						fill
-						className='rounded-[20px]'
+						className='rounded-[20px] object-cover'
 					/>
 				</div>
 				<div className='mt-[28px] flex w-[146px] flex-col items-start xl:mt-[18px] xl:w-[856px]'>

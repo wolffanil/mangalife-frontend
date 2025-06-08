@@ -7,6 +7,8 @@ import { ListItem } from '@/shared/components/elements'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import type { IMangaForPublish } from '@/shared/types/manga.interface'
 
+import { useGetMangasPublish } from '../lib/hooks/useGetMangasPublish'
+
 interface TitlesItemProps {
 	title: string
 	value: string
@@ -14,6 +16,8 @@ interface TitlesItemProps {
 }
 
 function TitlesItem({ title, value, isModal }: TitlesItemProps) {
+	const { mangas: mangasState, isLoadingMangas } = useGetMangasPublish()
+
 	const [status, setStatus] = useQueryState('status', {
 		defaultValue: 'все'
 	})

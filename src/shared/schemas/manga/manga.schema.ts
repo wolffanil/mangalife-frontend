@@ -18,11 +18,22 @@ export const mangaSchema = z.object({
 	author: z
 		.string({ message: 'автор должен быть' })
 		.nonempty({ message: 'автор должен быть' }),
-	ageLimit: z.coerce
-		.number({ message: 'Возрастное огрничение должно быть' })
-		.gte(10, 'Ограничение должно быть минимум от 10 лет'),
-	// year: z.string({ message: 'Год релиза должен быть' }),
-	year: z.coerce.number().gte(1900, 'Год релиза должен быть минимум 1900 г'),
+	ageLimit: z.string({ message: 'Возрастное огрничение должно быть' }),
+	year: z.coerce
+		.number({ message: 'Год релиза должен быть' })
+		.refine(
+			val => {
+				return val >= 1900
+			},
+			{ message: 'Год релиза должен быть минимум 1900 г' }
+		)
+		.refine(
+			val => {
+				const currentYear: number = new Date().getFullYear()
+				return val <= currentYear
+			},
+			{ message: 'Год релиза не может быть в будущем' }
+		),
 	poster: z.string().optional(),
 	country: z
 		.string({ message: 'Страна должна быть' })

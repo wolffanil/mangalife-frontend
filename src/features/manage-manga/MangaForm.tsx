@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
+import { number } from 'zod'
 
 import {
 	Button,
@@ -44,11 +45,11 @@ function MangaForm({ manga, type }: MangaFormProps) {
 				description: manga?.description || '',
 				poster: manga?.poster || '',
 				file: [],
-				author: manga?.author?._id || '',
+				author: manga?.author?._id ?? undefined,
 				//@ts-ignore
-				ageLimit: String(manga?.ageLimit) || '',
+				ageLimit: String(manga?.ageLimit) ?? undefined,
 				//@ts-ignore
-				year: Number(manga?.year) || '',
+				year: Number(manga?.year) ?? undefined,
 				genres: manga?.genres.map(genre => genre?._id) || [],
 				status: manga?.status || '',
 				type: manga?.type || ''

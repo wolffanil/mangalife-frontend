@@ -3,10 +3,7 @@ import type { IManga } from '../types/manga.interface'
 
 export const fetchPopularMangas = async (): Promise<IManga[]> => {
 	const res = await fetch(API_URL + getMangaUrl('/get-popular'), {
-		method: 'GET',
-		next: {
-			revalidate: 60000
-		}
+		method: 'GET'
 	})
 
 	const data = await res.json()
@@ -16,11 +13,7 @@ export const fetchPopularMangas = async (): Promise<IManga[]> => {
 
 export const fetchNewMangas = async (): Promise<IManga[]> => {
 	const res = await fetch(API_URL + getMangaUrl('/get-new'), {
-		method: 'GET',
-		next: {
-			revalidate: 60000,
-			tags: ['newMangas']
-		}
+		method: 'GET'
 	})
 
 	const data = await res.json()

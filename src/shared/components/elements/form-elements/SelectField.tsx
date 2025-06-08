@@ -34,11 +34,11 @@ const SelectField = <T extends Record<string, any>>({
 					<select
 						onBlur={onBlur}
 						onChange={onChange}
-						value={value || ''}
+						value={value ?? ''}
 						className={cn('input', classNameInput)}
 						{...rest}
 					>
-						<option selected disabled>
+						<option value='' disabled>
 							{titleEmpty}
 						</option>
 						{values.map((item, i) => (

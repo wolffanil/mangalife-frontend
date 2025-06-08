@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import { UseFormReset, UseFormSetError, UseFormSetValue } from 'react-hook-form'
 
-import revalidateNewMangas from '@/shared/actions/actions.mangas'
 import { USER_URL } from '@/shared/config/url.config'
 import { MUTATION_KEYS } from '@/shared/enums/mutation.keys'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
@@ -43,14 +42,23 @@ export function useActionManga({
 			onSuccess: manga => {
 				handleToast('success', 'Манга успешно создана')
 				reset()
-				queryClient.refetchQueries({
+				queryClient.removeQueries({
 					queryKey: [QUERY_KEYS.NEW_MANGAS]
 				})
 				queryClient.removeQueries({
 					queryKey: [QUERY_KEYS.MANGAS],
 					exact: false
 				})
-				revalidateNewMangas()
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.POPULAR_MANGAS]
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.SEARCH_MANGAS],
+					exact: false
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.MANGAS_PUBLISH]
+				})
 				router.push(USER_URL.createChapter(manga._id))
 			},
 			onError: (errors: any) => {
@@ -64,11 +72,31 @@ export function useActionManga({
 			mutationFn: (data: IEditManga) =>
 				MangaService.update(mangaId ?? '', data),
 			onSuccess: manga => {
-				handleToast('success', 'манга успешно обноалена')
+				handleToast('success', 'манга успешно обновлена')
 				queryClient.setQueryData(
 					[QUERY_KEYS.MANGA_BY_ID, mangaId],
 					(data: IManga) => ({ ...data, ...manga })
 				)
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.NEW_MANGAS]
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.MANGAS],
+					exact: false
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.POPULAR_MANGAS]
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.SEARCH_MANGAS],
+					exact: false
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.MANGAS_PUBLISH]
+				})
+				queryClient.removeQueries({
+					queryKey: [QUERY_KEYS.GET_MY_PLANS]
+				})
 			},
 			onError: (errors: any) => {
 				handleErrors(errors, setError)

@@ -50,11 +50,11 @@ export const userAggreements = [
 	},
 	{
 		title: 'Политика конфиденциальности',
-		link: PUBLIC_URL.politicts()
+		link: PUBLIC_URL.confAgreement()
 	},
 	{
 		title: 'Условия подписки',
-		link: PUBLIC_URL.subscribeRules()
+		link: PUBLIC_URL.subscribeAgreement()
 	}
 ]
 

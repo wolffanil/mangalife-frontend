@@ -1,4 +1,4 @@
-import { MangaItem } from '@/shared/components/elements'
+import { MangaItem, Skeleton } from '@/shared/components/elements'
 import type { IManga } from '@/shared/types/manga.interface'
 import { cn } from '@/shared/utils/tw-merge'
 
@@ -6,9 +6,15 @@ interface MangasWrapperProps {
 	title: string
 	mangas: IManga[]
 	classNameText?: string
+	isLoading: boolean
 }
 
-function MangasWrapper({ title, mangas, classNameText }: MangasWrapperProps) {
+function MangasWrapper({
+	title,
+	mangas,
+	classNameText,
+	isLoading
+}: MangasWrapperProps) {
 	return (
 		<div className='relative flex w-full items-start'>
 			<h2
@@ -19,8 +25,15 @@ function MangasWrapper({ title, mangas, classNameText }: MangasWrapperProps) {
 			>
 				{title}
 			</h2>
-			<ul className='ml-[47px] grid w-full grid-cols-3 gap-x-[10px] xl:ml-[64px] xl:grid-cols-7 xl:gap-x-[20px]'>
-				{mangas?.length ? (
+			<ul className='ml-[47px] grid min-h-[136px] w-full grid-cols-3 gap-x-[10px] xl:ml-[64px] xl:min-h-[272px] xl:grid-cols-7 xl:gap-x-[20px]'>
+				{isLoading ? (
+					Array.from({ length: 3 }).map((_, i) => (
+						<Skeleton
+							key={i}
+							className='h-[272px] w-[180px] rounded-[10px] max-sm:h-[136px] max-sm:w-[82px]'
+						/>
+					))
+				) : mangas?.length ? (
 					mangas.map(manga => (
 						<MangaItem
 							manga={manga}

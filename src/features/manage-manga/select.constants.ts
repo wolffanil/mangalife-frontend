@@ -35,14 +35,14 @@ export const SELECT_MANGA_STATUS = [
 export const SELECT_MANGA_AGE_LIMIT = [
 	{
 		title: '+18',
-		value: 18
+		value: '18'
 	},
 	{
 		title: '+16',
-		value: 16
+		value: '16'
 	},
 	{
 		title: '+10',
-		value: 10
+		value: '10'
 	}
 ]

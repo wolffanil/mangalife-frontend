@@ -6,11 +6,7 @@ import Search from './ui/Search'
 import FilterButton from './ui/filters/FilterButton'
 import FilterSidebar from './ui/filters/FilterSidebar'
 
-interface CatalogProps {
-	initialMangas: IManga[]
-}
-
-function Catalog({ initialMangas }: CatalogProps) {
+function Catalog() {
 	return (
 		<>
 			<Search />
@@ -22,7 +18,7 @@ function Catalog({ initialMangas }: CatalogProps) {
 				<FilterButton />
 				<div className='mt-[69px] flex w-full justify-between'>
 					<FilterSidebar />
-					<Mangas initialMangas={initialMangas} />
+					<Mangas />
 				</div>
 			</WhiteWrapper>
 		</>

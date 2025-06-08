@@ -1,26 +1,15 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useQueryState } from 'nuqs'
-import { useEffect } from 'react'
 
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import { MangaService } from '@/shared/services/manga.service'
-import { IManga } from '@/shared/types/manga.interface'
 import { getMediaSource } from '@/shared/utils/get-media-source'
 
-export function useGetMangas(initialMangas: IManga[]) {
+export function useGetMangas() {
 	const [genres] = useQueryState('genres')
 	const [type] = useQueryState('type')
 	const [status] = useQueryState('status')
 	const [filter] = useQueryState('filter')
-
-	const queryClient = useQueryClient()
-
-	useEffect(() => {
-		queryClient.setQueryData(
-			[QUERY_KEYS.MANGAS, null, null, null],
-			initialMangas
-		)
-	}, [initialMangas])
 
 	const { data: mangas, isLoading: isLoadingMangas } = useQuery({
 		queryKey: [

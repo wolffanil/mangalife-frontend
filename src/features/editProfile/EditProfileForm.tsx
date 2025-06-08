@@ -25,8 +25,9 @@ function EditProfileForm() {
 		useForm<TEditProfileEdit>({
 			resolver: zodResolver(editProfileSchema),
 			defaultValues: {
-				nickname: user?.nickname ?? 'sdfsdf',
+				nickname: user?.nickname ?? '',
 				bio: user?.bio ?? undefined,
+				//@ts-ignore
 				gender: user?.gender ?? undefined,
 				file: []
 			}
