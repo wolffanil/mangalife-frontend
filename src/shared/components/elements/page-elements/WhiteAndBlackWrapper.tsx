@@ -24,8 +24,8 @@ function WhiteAndBlackWrapper({
 					<p className='font-open_sans-semibold text-[16px] font-semibold text-yellow xl:font-open_sans-bold xl:text-[36px] xl:font-bold'>
 						{title}
 					</p>
-					<span className='mx-[30px] h-[57px] w-[1px] bg-yellow xl:mx-[120px] xl:h-[129px]' />
-					<p className='font-open_sans-semibold text-[14px] font-semibold text-yellow xl:font-open_sans-bold xl:text-[28px] xl:font-bold'>
+					<span className='mx-[30px] hidden h-[57px] w-[1px] bg-yellow xl:mx-[120px] xl:h-[129px]' />
+					<p className='hidden font-open_sans-semibold text-[14px] font-semibold text-yellow xl:font-open_sans-bold xl:text-[28px] xl:font-bold'>
 						{desc}
 					</p>
 				</div>

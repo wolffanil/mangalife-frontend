@@ -28,7 +28,7 @@ export function useSubscribe() {
 
 	const handleCheckout = async () => {
 		if (!isAuthenticated) {
-			handleToast('info', 'Требуеться авторизация')
+			handleToast('info', 'Требуется авторизация')
 			router.push(PUBLIC_URL.login())
 			return
 		}

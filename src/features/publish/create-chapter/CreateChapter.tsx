@@ -7,8 +7,8 @@ function CreateChapter() {
 		<WhiteWrapper
 			isSecond
 			title='Добавление главы'
-			subTitleOne='Одиночная'
-			subTitleTwo='Множественная'
+			// subTitleOne='Одиночная'
+			// subTitleTwo='Множественная'
 		>
 			<CreateChapterForm />
 		</WhiteWrapper>

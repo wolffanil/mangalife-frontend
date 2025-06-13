@@ -41,7 +41,7 @@ function GenreForm() {
 				disabled={isCreatingGenre}
 				type='submit'
 			>
-				Добавть
+				Добавить
 			</Button>
 		</form>
 	)

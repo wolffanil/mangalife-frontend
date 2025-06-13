@@ -14,8 +14,8 @@ function DashboardChapters() {
 		<WhiteWrapper
 			title='Редактирование'
 			isSecond
-			subTitleOne='Информация'
-			subTitleTwo='Главы'
+			// subTitleOne='Информация'
+			// subTitleTwo='Главы'
 		>
 			<ChaptersSettings />
 			<SelectChapter>

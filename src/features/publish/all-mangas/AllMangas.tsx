@@ -9,8 +9,8 @@ function AllMangas() {
 		<WhiteWrapper
 			title='Управление'
 			hiddenSubTitleMobile
-			subTitleOne='Произведения'
-			subTitleTwo='Авторы'
+			// subTitleOne='Произведения'
+			// subTitleTwo='Авторы'
 			isSecond
 		>
 			<ModalButton />

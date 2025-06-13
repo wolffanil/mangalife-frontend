@@ -44,7 +44,7 @@ function AuthorForm() {
 				disabled={isCreatingAuthor}
 				type='submit'
 			>
-				Добавть
+				Добавить
 			</Button>
 		</form>
 	)
