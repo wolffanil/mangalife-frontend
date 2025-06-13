@@ -34,7 +34,7 @@ function CreateChapterForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(handleCreateChapter)}
-			className='mt-[42px] flex w-full max-w-full flex-col items-start xl:mt-[30px]'
+			className='mt-[30px] flex w-full max-w-full flex-col items-start xl:mt-[68px]'
 		>
 			<div className='flex flex-col items-start justify-between gap-y-[35px] xl:flex-row xl:gap-x-[30px] xl:gap-y-0'>
 				<div className='flex w-[154px] items-start justify-between gap-x-[10px] xl:w-[240px] xl:gap-x-[30px]'>
