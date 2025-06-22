@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 
@@ -27,12 +27,20 @@ function RegisterForm() {
 			}
 		})
 
+	const recaptchaRef = useRef<ReCAPTCHA>(null)
+
 	const { registerMutation, isLoadingRegister } = useRegister(reset, setError)
 
 	const handleRegister = async (data: TypeRegisterSchema) => {
 		if (!recaptchaValue) return
 
-		await registerMutation({ data, recaptcha: recaptchaValue })
+		try {
+			await registerMutation({ data, recaptcha: recaptchaValue })
+		} catch (error) {
+		} finally {
+			recaptchaRef?.current?.reset()
+			setRecaptchaValue(null)
+		}
 	}
 
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
@@ -87,6 +95,7 @@ function RegisterForm() {
 				<ReCAPTCHA
 					sitekey={GOOGLE_RECAPTCHA_SITE_KEY}
 					onChange={setRecaptchaValue}
+					ref={recaptchaRef}
 				/>
 			</div>
 			<Button

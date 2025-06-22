@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 
@@ -19,6 +19,7 @@ function LoginForm() {
 	const router = useRouter()
 
 	const [isShowPassword, setIsShowPassword] = useState(false)
+	const recaptchaRef = useRef<ReCAPTCHA>(null)
 
 	const { handleSubmit, control, reset, setError } = useForm<TypeLoginSchema>(
 		{
@@ -38,10 +39,19 @@ function LoginForm() {
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
 
 	const handleLogin = async (data: TypeLoginSchema) => {
-		if (isShowPassword) {
-			await loginMutation({ data, recaptcha: recaptchaValue ?? '' })
-		} else {
-			await checkEmailMutation({ data, recaptcha: recaptchaValue ?? '' })
+		try {
+			if (isShowPassword) {
+				await loginMutation({ data, recaptcha: recaptchaValue ?? '' })
+			} else {
+				await checkEmailMutation({
+					data,
+					recaptcha: recaptchaValue ?? ''
+				})
+			}
+		} catch {
+		} finally {
+			recaptchaRef?.current?.reset()
+			setRecaptchaValue(null)
 		}
 	}
 
@@ -131,6 +141,7 @@ function LoginForm() {
 				<ReCAPTCHA
 					sitekey={GOOGLE_RECAPTCHA_SITE_KEY}
 					onChange={setRecaptchaValue}
+					ref={recaptchaRef}
 				/>
 			</div>
 			<Button
