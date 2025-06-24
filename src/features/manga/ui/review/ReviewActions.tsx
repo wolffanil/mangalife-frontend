@@ -24,7 +24,7 @@ function ReviewActions({
 					onClick={() => setFormAnswer(v => !v)}
 					className='font-open_sans-regular text-[16px] text-main-color'
 				>
-					{!isFormAnswer ? 'Ответить' : 'Cкрыть'}
+					{!isFormAnswer ? 'Ответить' : 'Скрыть'}
 				</button>
 			</OnlyUser>
 
@@ -32,7 +32,7 @@ function ReviewActions({
 				onClick={() => setShowAnswers(v => !v)}
 				className='font-open_sans-regular text-[16px] text-main-color'
 			>
-				{!isShowAnswers ? 'Показать ответы' : 'Cкрыть ответы'}
+				{!isShowAnswers ? 'Показать ответы' : 'Скрыть ответы'}
 			</button>
 		</div>
 	)

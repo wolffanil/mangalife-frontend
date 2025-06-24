@@ -16,7 +16,7 @@ export type ReviewStatusType =
 	| 'Новый'
 	| 'Отклонённый'
 	| 'Предупреждения'
-	| 'Заблокированый'
+	| 'Заблокированный'
 
 export interface ICreateReview {
 	manga: string

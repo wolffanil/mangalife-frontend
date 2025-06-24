@@ -47,7 +47,7 @@ function MangaForm({ manga, type }: MangaFormProps) {
 				file: [],
 				author: manga?.author?._id ?? undefined,
 				//@ts-ignore
-				ageLimit: String(manga?.ageLimit) ?? undefined,
+				ageLimit: String(manga?.ageLimit) || '',
 				//@ts-ignore
 				year: Number(manga?.year) ?? undefined,
 				genres: manga?.genres.map(genre => genre?._id) || [],
@@ -187,7 +187,7 @@ function MangaForm({ manga, type }: MangaFormProps) {
 				disabled={isLoading || isLoadingAuthors || isLoadingGenres}
 			>
 				{isLoading
-					? 'Загррузка...'
+					? 'Загрузка...'
 					: type === 'create'
 						? 'Добавить'
 						: 'Редактировать'}
